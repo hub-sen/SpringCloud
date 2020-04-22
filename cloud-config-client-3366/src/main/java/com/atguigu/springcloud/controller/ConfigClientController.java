@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <pre>
  * Description
  * @author shishi
- * 2020/4/22 10:03
+ * 2020/4/22 11:04
  * </pre>
  */
 @RestController
@@ -26,5 +26,4 @@ public class ConfigClientController {
     public String getInfo(){
         return "serverPort: " + serverPort + "\nconfigInfo: " + configInfo;
     }
-
 }

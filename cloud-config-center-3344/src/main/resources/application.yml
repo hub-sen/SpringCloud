@@ -12,6 +12,12 @@ spring:
           search-paths:
             - SpringCloud-Config
       label: master
+  rabbitmq:
+    host: 192.168.72.162
+    port: 5672
+    username: shisen
+    password: shisen
+
 eureka:
   client:
     register-with-eureka: true
@@ -21,3 +27,10 @@ eureka:
   instance:
     instance-id: cloud-config-center
     prefer-ip-address: true
+
+# 暴漏监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
