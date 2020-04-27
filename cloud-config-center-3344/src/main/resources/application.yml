@@ -13,7 +13,7 @@ spring:
             - SpringCloud-Config
       label: master
   rabbitmq:
-    host: 192.168.72.162
+    host: ubuntuServer.com
     port: 5672
     username: shisen
     password: shisen
