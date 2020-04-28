@@ -1,0 +1,16 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-cofnig-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ubuntuServer.com:8848
+        namespace: b798aca7-90b2-4133-a00f-a5e4c903dc7c
+      config:
+        server-addr: ubuntuServer.com:8848
+        file-extension: yaml
+        group: DEV_GROUP
+        namespace: b798aca7-90b2-4133-a00f-a5e4c903dc7c
