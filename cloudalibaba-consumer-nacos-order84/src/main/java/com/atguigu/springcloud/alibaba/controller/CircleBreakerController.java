@@ -2,6 +2,7 @@ package com.atguigu.springcloud.alibaba.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.atguigu.springcloud.alibaba.service.PaymentService;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,6 +30,10 @@ public class CircleBreakerController {
     @Resource
     private RestTemplate restTemplate;
 
+    @Resource
+    private PaymentService paymentService;
+
+
     @GetMapping("/consumer/fallback/{id}")
 //    @SentinelResource("fallback") // 没有配置
 //    @SentinelResource(value = "fallback", fallback = "fallbackHandler") // fallback 只负责业务异常
@@ -55,5 +60,11 @@ public class CircleBreakerController {
         Payment payment = new Payment(id, "null");
         return new CommonResult<Payment>(4444, "兜底异常blockHandler, exception: " + blockException.getMessage(), payment);
     }
+
+    @GetMapping("/consumer/openfeign/{id}")
+    public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id) {
+        return paymentService.paymentSQL(id);
+    }
+
 
 }
